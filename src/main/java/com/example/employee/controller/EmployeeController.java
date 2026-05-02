@@ -28,12 +28,6 @@ public class EmployeeController {
         return employeeJpaService.getAllEmployee();
     }
 
-
-    @GetMapping("/employees")
-    public List<Employee> getAllEmployee() {
-        return employeeJpaService.getAllEmployee();
-    }
-
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
 
