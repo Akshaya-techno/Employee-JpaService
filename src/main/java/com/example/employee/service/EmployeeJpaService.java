@@ -8,11 +8,10 @@
  */
 
 // Write your code here
+
 package com.example.employee.service;
 
-
 import com.example.employee.repository.*;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,14 +34,18 @@ public class EmployeeJpaService implements EmployeeRepository {
 
     @Override
     public Employee addEmployee(Employee employee) {
+
         Employee savedEmployee = employeeJpaRepository.save(employee);
+
         return savedEmployee;
     }
 
     @Override
     public Employee getEmployeeById(int employeeId) {
         try {
+
             Employee employee = employeeJpaRepository.findById(employeeId).get();
+
             return employee;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -51,26 +54,29 @@ public class EmployeeJpaService implements EmployeeRepository {
 
     @Override
     public Employee updateEmployee(int employeeId, Employee employee) {
-        try{
+
+        try {
             Employee toUpdate = employeeJpaRepository.findById(employeeId).get();
             if (employee.getEmployeeName() != null) {
                 toUpdate.setEmployeeName(employee.getEmployeeName());
             }
             if (employee.getEmail() != null) {
-                toUpdate.setEmail(employee.getEmail());        
+                toUpdate.setEmail(employee.getEmail());
             }
             if (employee.getDepartment() != null) {
                 toUpdate.setDepartment(employee.getDepartment());
             }
             employeeJpaRepository.save(toUpdate);
-            return toUpdate
+            return toUpdate;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
+
     }
 
     @Override
     public void deleteEmployee(int employeeId) {
+
         try{
             employeeJpaRepository.deleteById(employeeId)
         }catch (Exception e) {

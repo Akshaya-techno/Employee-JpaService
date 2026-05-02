@@ -1,3 +1,4 @@
+
 /*
  * You can use the following import statements
  *
@@ -19,7 +20,14 @@ import java.util.*;
 @RestController
 public class EmployeeController {
     @Autowired
+
     private EmployeeJpaService employeeJpaService;
+
+    @GetMapping("/employees")
+    public List<Employee> getAllEmployee() {
+        return employeeJpaService.getAllEmployee();
+    }
+
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployee() {
@@ -28,16 +36,21 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
+
         return employeeJpaService.addEmployee(employee);
+
     }
 
     @GetMapping("/employees/{employeeId}")
     public Employee getEmployeeById(@PathVariable("employeeId") int employeeId) {
+
         return employeeJpaService.getEmployeeById(employeeId);
+
     }
 
     @PutMapping("/employees/{employeeId}")
     public Employee updateEmployee(@PathVariable("employeeId") int employeeId, @RequestBody Employee employee) {
+
         return employeeJpaService.updateEmployee(employeeId, employee);
     }
 
@@ -45,5 +58,6 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable("employeeId") int employeeId) {
         employeeJpaService.deleteEmployee(employeeId);
     }
+
 
 }
