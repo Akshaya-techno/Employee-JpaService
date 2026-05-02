@@ -8,6 +8,7 @@
 // Write your code here
 // Write your code here
 package com.example.employee.model;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,7 +25,8 @@ public class Employee {
     @Column(name = "department")
     private String department;
 
-    public Employee(){}
+    public Employee() {
+    }
 
     public Employee(int employeeId, String employeeName, String email, String department) {
         this.employeeId = employeeId;
