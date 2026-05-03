@@ -12,17 +12,17 @@ package com.example.employee.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employeelist")
+@Table(name = "EMPLOYEELIST")
 public class Employee {
     @Id
-    @Column(name = "employeeid")
+    @Column(name = "EMPLOYEEID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
-    @Column(name = "employeeName")
+    @Column(name = "EMPLOYEENAME")
     private String employeeName;
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
-    @Column(name = "department")
+    @Column(name = "DEPARTMENT")
     private String department;
 
     public Employee() {
