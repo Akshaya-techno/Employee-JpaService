@@ -78,7 +78,7 @@ public class EmployeeJpaService implements EmployeeRepository {
     public void deleteEmployee(int employeeId) {
 
         try{
-            employeeJpaRepository.deleteById(employeeId)
+            employeeJpaRepository.deleteById(employeeId);
         }catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
