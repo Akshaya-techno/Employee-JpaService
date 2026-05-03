@@ -78,9 +78,9 @@ public class EmployeeJpaService implements EmployeeRepository {
     @Override
     public void deleteEmployee(int employeeId) {
 
-        try{
+        try {
             employeeJpaRepository.deleteById(employeeId);
-        }catch (Exception e) {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
